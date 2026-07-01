@@ -6,7 +6,6 @@
     <title>Para Wendy</title>
     <style>
         body {
-            /* Fondo degradado en color vino oscuro y negro */
             background: linear-gradient(135deg, #4a0e17 0%, #1a0508 100%);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
@@ -24,11 +23,11 @@
             box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.6);
             max-width: 580px;
             width: 100%;
-            border: 3px solid #722f37; /* Borde color vino */
+            border: 3px solid #722f37;
             position: relative;
         }
         h1 {
-            color: #58111a; /* Vino oscuro */
+            color: #58111a;
             font-size: 28px;
             margin-bottom: 25px;
             text-align: center;
@@ -54,11 +53,35 @@
             50% { transform: scale(1.1); }
             100% { transform: scale(1); }
         }
+
+        /* Sección de la bromita con la imagen */
+        .seccion-broma {
+            text-align: center;
+            margin: 30px 0;
+            padding: 15px;
+            background-color: #fdf5f6;
+            border-radius: 15px;
+            border: 1px solid #d9c5c7;
+        }
+        .seccion-broma img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.15);
+            display: block;
+            margin: 0 auto 15px auto;
+        }
+        .texto-broma {
+            color: #58111a;
+            font-size: 16px;
+            font-weight: bold;
+            font-style: italic;
+        }
         
         /* Sección de música - Estilo Vino y Negro */
         .contenedor-musica {
             margin-top: 35px;
-            background: #fdf5f6; /* Fondo con un levísimo toque rosa/vino sutil */
+            background: #fdf5f6;
             padding: 25px;
             border-radius: 18px;
             border: 2px dashed #722f37;
@@ -96,7 +119,7 @@
             font-style: italic;
         }
         .btn-cancion {
-            background: linear-gradient(45deg, #58111a, #1a0508); /* Degradado vino a negro */
+            background: linear-gradient(45deg, #58111a, #1a0508);
             color: white;
             border: none;
             padding: 12px 20px;
@@ -118,7 +141,7 @@
             box-shadow: 0px 6px 15px rgba(88, 17, 26, 0.3);
         }
         .btn-cancion.reproduciendo {
-            background: linear-gradient(45deg, #2e7d32, #4caf50); /* Verde cuando reproduce */
+            background: linear-gradient(45deg, #2e7d32, #4caf50);
             animation: pulso-verde 1.5s infinite;
             box-shadow: 0px 4px 10px rgba(46, 125, 50, 0.2);
         }
@@ -148,7 +171,6 @@
         <div class="corazon">❤️</div>
         <h1>Para Wendy <span class="brillo">✨</span></h1>
         
-        <!-- TU CARTA OFICIAL -->
         <div class="carta-texto">Buenos días, mi amor. ❤️
 Y sí... al final sí lo hice jajaja. 😅 Me tardé un poco porque, aunque quería hacerlo en Python, terminé haciéndolo de otra forma. Pero fue por una buena causa.
 
@@ -203,7 +225,7 @@ Quiero celebrar contigo cuando estés feliz.
 Quiero estar orgulloso de cada logro tuyo.
 Quiero ser un lugar donde puedas sentir paz.
 
-En serio, me estoy esforzarme por cambiar. Lo hago por mí, sí, pero también porque creo que lo nuestro vale la pena.
+En serio, me estoy esforzando por cambiar. Lo hago por mí, sí, pero también porque creo que lo nuestro vale la pena.
 
 Perdón por las veces en las que he sido bruto o no he sabido demostrarte todo lo que siento.
 Nunca ha sido por falta de amor.
@@ -234,51 +256,49 @@ Espero que hayas descansado muy bien, mi vida.
 Y recuerda esto, aunque nunca más leas esta carta:
 Te amo muchísimo, Wendy. Más de lo que a veces las palabras me alcanzan para explicar. ❤️</div>
         
-        <!-- SECCIÓN DE MÚSICA -->
+        <div class="seccion-broma">
+            <img src="imagen1.jpg" alt="Gatitos tiernos">
+            <div class="texto-broma">"me perdonas o procedo a "</div>
+        </div>
+
         <div class="contenedor-musica">
-            <div class="titulo-musica">🎵 Una playlist para acompañar estas palabras</div>
+            <div class="titulo-musica">🎵 una playlist para mi vida ya que estoy muy camote de ella</div>
             
-            <!-- CANCIÓN 1 -->
             <div class="bloque-cancion">
                 <div class="dedicatoria-cancion">"siempre te voy a dedicar mis enanitos verdes siempre, y dejemos nuestro pasado, yo quiero vivir contigo mi vida el presente y el futuro, eres muy calidad eso me encanta contigo, no siento frio cuando estoy contigo, cuando cuando estoy tan pendejo que no me seco por completo mi cabello pero eso ya no es tu culpa JAJAJAJ, pero te dedico esta parte de la cancion.....espero te guste"</div>
                 <button class="btn-cancion" onclick="controlarMusica('cancion1.mp3', 30, 93, this)">
-                    <span>▶️</span> Canción 1 (0:30 a 1:33)
+                    <span>▶️</span> Canción 1
                 </button>
             </div>
             
-            <!-- CANCIÓN 2 -->
             <div class="bloque-cancion">
                 <div class="dedicatoria-cancion">"se que eres fanatica de Jose madero pero bueno se que tambien la deviste escuhcar pero a un asi te la dedico porque siempre quiero que seas vos, tu eres la razon por la que no soy logico contigo,,,, soy bobo por usted corazon..."</div>
                 <button class="btn-cancion" onclick="controlarMusica('cancion2.mp3', 10, 91, this)">
-                    <span>▶️</span> Canción 2 (0:10 a 1:31)
+                    <span>▶️</span> Canción 2
                 </button>
             </div>
             
-            <!-- CANCIÓN 3 -->
             <div class="bloque-cancion">
                 <div class="dedicatoria-cancion">"se que tambien la escuchaste se que si.... pero decirte que no seas tan ciega estoy bien ojete crj... ajjajaja lo que si quiero decirte es que si me sacriifico por usted y a al primera.... tu haces que valga vivir esta horrenda vida... lo haces brillar"</div>
                 <button class="btn-cancion" onclick="controlarMusica('cancion3.mp3', 8, 74, this)">
-                    <span>▶️</span> Canción 3 (0:08 a 1:14)
+                    <span>▶️</span> Canción 3
                 </button>
             </div>
 
-            <!-- CANCIÓN 4 -->
             <div class="bloque-cancion">
                 <div class="dedicatoria-cancion">"cuando te tengo a mi lado y es tan obvio lo nervioso que estoy que no te miro jajajaj es que estoy todo sonrojado, y ya nada mas me importa cuando estoy contigo y se que es real lo nuestro..."</div>
                 <button class="btn-cancion" onclick="controlarMusica('cancion4.mp3', 80, 110, this)">
-                    <span>▶️</span> Canción 4 (1:20 a 1:50)
+                    <span>▶️</span> Canción 4
                 </button>
             </div>
 
-            <!-- CANCIÓN 5 -->
             <div class="bloque-cancion">
                 <div class="dedicatoria-cancion">"y se que esta cancion en tu vida la escuchaste pero solo decirte que me mueror por tus ojos por esa mirada que me tiene loco, de verdad que me encantas bastante mi vida..."</div>
                 <button class="btn-cancion" onclick="controlarMusica('cancion5.mp3', 129, 225, this)">
-                    <span>▶️</span> Canción 5 (2:09 a 3:45)
+                    <span>▶️</span> Canción 5
                 </button>
             </div>
 
-            <!-- NOTA FINAL DE LA PLAYLIST -->
             <div class="despedida-playlist">
                 y espero te haya gustado las canciones los parrafos que elegi mi vida....y de verdad que te amo y un monton, yo aqui programando no me vi AJJAJAJAJ
             </div>
@@ -312,7 +332,6 @@ Te amo muchísimo, Wendy. Más de lo que a veces las palabras me alcanzan para e
 
             clearInterval(intervaloControl);
             
-            // Intentar cargar la canción. Si cambiaste los nombres en tu pc, recuerda subirlos igual aquí.
             audio.src = archivo;
             audio.currentTime = tiempoInicio;
             audio.play().catch(e => console.log("Interacción requerida o archivo faltante"));
