@@ -3,75 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para Alguien Especial</title>
+    <title>Para Wendy</title>
     <style>
         body {
-            background-color: #ffe6e6;
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            padding: 20px;
+            padding: 40px 20px;
             box-sizing: border-box;
         }
         .tarjeta {
             background-color: white;
-            padding: 35px;
-            border-radius: 20px;
-            box-shadow: 0px 10px 25px rgba(0,0,0,0.1);
-            text-align: center;
-            max-width: 420px;
+            padding: 40px 30px;
+            border-radius: 25px;
+            box-shadow: 0px 15px 35px rgba(103, 58, 183, 0.15);
+            max-width: 550px; /* Un poco más ancha para que la carta se lea cómoda */
             width: 100%;
-            border: 2px solid #ffccd5;
+            border: 3px solid #ce93d8;
+            position: relative;
         }
         h1 {
-            color: #ff4d6d;
-            font-size: 30px;
-            margin-bottom: 10px;
+            color: #6a1b9a;
+            font-size: 28px;
+            margin-bottom: 25px;
+            text-align: center;
         }
-        p {
-            color: #4a4a4a;
-            font-size: 17px;
-            line-height: 1.6;
+        .carta-texto {
+            color: #4a148c;
+            font-size: 16px;
+            line-height: 1.7;
+            text-align: left;
+            white-space: pre-line; /* Mantiene los saltos de línea de tu mensaje */
+            margin-bottom: 30px;
         }
         .corazon {
-            color: #ff4d6d;
-            font-size: 60px;
-            animation: latido 1.2s infinite;
-            margin-bottom: 15px;
+            color: #9c27b0;
+            font-size: 50px;
+            animation: latido 1.3s infinite;
+            display: block;
+            text-align: center;
+            margin-bottom: 10px;
         }
         @keyframes latido {
             0% { transform: scale(1); }
-            50% { transform: scale(1.15); }
+            50% { transform: scale(1.1); }
             100% { transform: scale(1); }
         }
         
-        /* Estilos de los botones de música */
+        /* Sección de música */
         .contenedor-musica {
-            margin-top: 25px;
-            background: #fff0f3;
-            padding: 15px;
-            border-radius: 15px;
-            border: 1px dashed #ffb3c1;
+            margin-top: 30px;
+            background: #f3e5f5;
+            padding: 20px;
+            border-radius: 18px;
+            border: 2px dashed #ba68c8;
+            box-shadow: inset 0px 2px 5px rgba(0,0,0,0.02);
         }
         .titulo-musica {
-            color: #ff4d6d;
+            color: #7b1fa2;
             font-weight: bold;
             font-size: 15px;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
         .btn-cancion {
-            background-color: #ff4d6d;
+            background: linear-gradient(45deg, #ab47bc, #8e24aa);
             color: white;
             border: none;
-            padding: 12px 15px;
-            margin: 8px 0;
+            padding: 14px 20px;
+            margin: 10px 0;
             width: 100%;
-            border-radius: 10px;
+            border-radius: 12px;
             font-size: 15px;
             cursor: pointer;
             font-weight: bold;
@@ -79,51 +91,85 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 12px;
+            box-shadow: 0px 4px 10px rgba(142, 36, 170, 0.2);
         }
         .btn-cancion:hover {
-            background-color: #ff758f;
+            background: linear-gradient(45deg, #ba68c8, #ab47bc);
             transform: translateY(-2px);
+            box-shadow: 0px 6px 15px rgba(142, 36, 170, 0.3);
         }
         .btn-cancion.reproduciendo {
-            background-color: #38b000;
+            background: linear-gradient(45deg, #4caf50, #66bb6a);
             animation: pulso-verde 1.5s infinite;
+            box-shadow: 0px 4px 10px rgba(76, 175, 80, 0.2);
         }
         @keyframes pulso-verde {
-            0% { box-shadow: 0 0 0 0 rgba(56, 176, 0, 0.4); }
-            70% { box-shadow: 0 0 0 10px rgba(56, 176, 0, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(56, 176, 0, 0); }
+            0% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(76, 175, 80, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0); }
+        }
+        .brillo {
+            color: #ea80fc;
         }
     </style>
 </head>
 <body>
 
     <div class="tarjeta">
-        <div class="corazon">❤️</div>
-        <h1>¡Para Wendy!</h1>
-        <p>Escribí este código y creé esta página web solo para recordarte lo increíble y especial que eres para mí.</p>
-        <p>Gracias por cada momento. Eres mi persona favorita. ✨</p>
+        <div class="corazon">💜</div>
+        <h1>Para Wendy <span class="brillo">✨</span></h1>
+        
+        <!-- TU CARTA SINCERA -->
+        <div class="carta-texto">Buenos días, mi amor.
+
+Y sí, al final sí lo hice. 😅 Tardé un poco porque terminé haciéndolo de otra forma, pero fue por una buena causa.
+
+Quería escribirte esto porque hay cosas que necesito decirte con calma.
+
+Antes que nada, perdón. No escribo esto para que sientas pena por mí ni para exagerar lo que pasó, sino porque quiero ser completamente sincero contigo.
+
+Hay algo que todavía tengo muy presente: el día que me bloqueaste de todas partes. Fue un día muy triste para mí porque de verdad sentí que te había perdido. Desde entonces entendí cuánto significas para mí.
+
+También quiero que sepas algo. Nunca intenté "reciclar" palabras ni sentimientos. Lo que te dije aquel día salió de mi corazón. Si hubo cosas que olvidé o que hice mal, lo siento de verdad, pero jamás quise hacerte sentir que no eras especial.
+
+Siento que todavía estoy aprendiendo a quererte de la manera en que mereces. Nunca había vivido una relación así. No es una excusa, es simplemente la verdad. Para mí muchas cosas son nuevas, y a veces me equivoco sin darme cuenta.
+
+Pero hay algo de lo que sí estoy completamente seguro: te amo siendo yo mismo. Sin aparentar, sin fingir y sin decir cosas solo para quedar bien. Te amo porque eres tú.
+
+Si alguna vez parezco brusco o distante, no es porque no te quiera. Al contrario. Durante mucho tiempo estuve solo y aprendí a protegerme para no salir lastimado. A veces, sin querer, reacciono de esa forma por miedo a perder a alguien que me importa.
+
+No estoy orgulloso de eso, pero estoy trabajando para cambiar. Quiero ser una mejor versión de mí, no solo por ti, sino también por nosotros.
+
+Nunca pienses que eres una molestia para mí. Eres una de las personas más valiosas que han llegado a mi vida. Me importas muchísimo y por eso decidí escribirte todo esto.
+
+Quiero que sepas que estoy dispuesto a construir algo bonito contigo. Sé que habrá diferencias, errores y momentos difíciles, pero también quiero que aprendamos a resolverlos juntos, hablándonos con sinceridad y confiando el uno en el otro.
+
+No prometo ser perfecto, porque no lo soy. Lo que sí puedo prometerte es que siempre voy a esforzarme por mejorar, escucharte y cuidar lo que estamos construyendo.
+
+Gracias por seguir aquí.
+
+Te amo muchísimo, Wendy. ❤️</div>
         
         <!-- SECCIÓN DE MÚSICA -->
         <div class="contenedor-musica">
-            <div class="titulo-musica">🎵 Ponle música a esta carta</div>
+            <div class="titulo-musica">🎵 Una playlist para acompañar estas palabras</div>
             
-            <!-- PUEDES CAMBIAR LOS TIEMPOS AQUÍ ABAJO (Inicio, Fin) -->
-            <button class="btn-cancion" onclick="controlarMusica('cancion1.mp3', 30, 60, this)">
-                ▶️ Canción 1
+            <!-- Aquí dejé configurado tu ejemplo de la Canción 1 (0 a 1:52) -->
+            <button class="btn-cancion" onclick="controlarMusica('cancion1.mp3', 0, 112, this)">
+                <span>▶️</span> Canción Especial (0:00 a 1:52)
             </button>
             
-            <button class="btn-cancion" onclick="controlarMusica('cancion2.mp3', 45, 75, this)">
-                ▶️ Canción 2
+            <button class="btn-cancion" onclick="controlarMusica('cancion2.mp3', 30, 90, this)">
+                <span>▶️</span> El Coro Favorito
             </button>
             
-            <button class="btn-cancion" onclick="controlarMusica('cancion3.mp3', 10, 40, this)">
-                ▶️ Canción 3
+            <button class="btn-cancion" onclick="controlarMusica('cancion3.mp3', 15, 60, this)">
+                <span>▶️</span> Otro Recuerdo Juntos
             </button>
         </div>
     </div>
 
-    <!-- REPRODUCTOR OCULTO -->
     <audio id="reproductor-global"></audio>
 
     <script>
@@ -132,17 +178,20 @@
         let botonActivo = null;
 
         function controlarMusica(archivo, tiempoInicio, tiempoFin, botonActual) {
+            const iconSpan = botonActual.querySelector('span');
+
             if (botonActivo === botonActual && !audio.paused) {
                 audio.pause();
                 clearInterval(intervaloControl);
-                botonActual.innerHTML = botonActual.innerHTML.replace('⏸️', '▶️');
+                iconSpan.innerText = '▶️';
                 botonActual.classList.remove('reproduciendo');
                 botonActivo = null;
                 return;
             }
 
             if (botonActivo) {
-                botonActivo.innerHTML = botonActivo.innerHTML.replace('⏸️', '▶️');
+                const prevIconSpan = botonActivo.querySelector('span');
+                prevIconSpan.innerText = '▶️';
                 botonActivo.classList.remove('reproduciendo');
             }
 
@@ -152,7 +201,7 @@
             audio.currentTime = tiempoInicio;
             audio.play().catch(e => console.log("Interacción requerida"));
             
-            botonActual.innerHTML = botonActual.innerHTML.replace('▶️', '⏸️');
+            iconSpan.innerText = '⏸️';
             botonActual.classList.add('reproduciendo');
             botonActivo = botonActual;
 
@@ -160,7 +209,7 @@
                 if (audio.currentTime >= tiempoFin) {
                     audio.pause();
                     clearInterval(intervaloControl);
-                    botonActual.innerHTML = botonActual.innerHTML.replace('⏸️', '▶️');
+                    iconSpan.innerText = '▶️';
                     botonActual.classList.remove('reproduciendo');
                     botonActivo = null;
                 }
