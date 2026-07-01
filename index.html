@@ -6,7 +6,8 @@
     <title>Para Wendy</title>
     <style>
         body {
-            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            /* Fondo degradado en color vino oscuro y negro */
+            background: linear-gradient(135deg, #4a0e17 0%, #1a0508 100%);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             justify-content: center;
@@ -17,31 +18,31 @@
             box-sizing: border-box;
         }
         .tarjeta {
-            background-color: white;
+            background-color: #ffffff;
             padding: 40px 30px;
             border-radius: 25px;
-            box-shadow: 0px 15px 35px rgba(103, 58, 183, 0.15);
-            max-width: 550px; /* Un poco más ancha para que la carta se lea cómoda */
+            box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.6);
+            max-width: 580px;
             width: 100%;
-            border: 3px solid #ce93d8;
+            border: 3px solid #722f37; /* Borde color vino */
             position: relative;
         }
         h1 {
-            color: #6a1b9a;
+            color: #58111a; /* Vino oscuro */
             font-size: 28px;
             margin-bottom: 25px;
             text-align: center;
         }
         .carta-texto {
-            color: #4a148c;
+            color: #1a0508;
             font-size: 16px;
             line-height: 1.7;
             text-align: left;
-            white-space: pre-line; /* Mantiene los saltos de línea de tu mensaje */
-            margin-bottom: 30px;
+            white-space: pre-line;
+            margin-bottom: 35px;
         }
         .corazon {
-            color: #9c27b0;
+            color: #722f37;
             font-size: 50px;
             animation: latido 1.3s infinite;
             display: block;
@@ -54,20 +55,20 @@
             100% { transform: scale(1); }
         }
         
-        /* Sección de música */
+        /* Sección de música - Estilo Vino y Negro */
         .contenedor-musica {
-            margin-top: 30px;
-            background: #f3e5f5;
-            padding: 20px;
+            margin-top: 35px;
+            background: #fdf5f6; /* Fondo con un levísimo toque rosa/vino sutil */
+            padding: 25px;
             border-radius: 18px;
-            border: 2px dashed #ba68c8;
+            border: 2px dashed #722f37;
             box-shadow: inset 0px 2px 5px rgba(0,0,0,0.02);
         }
         .titulo-musica {
-            color: #7b1fa2;
+            color: #58111a;
             font-weight: bold;
-            font-size: 15px;
-            margin-bottom: 15px;
+            font-size: 16px;
+            margin-bottom: 20px;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             text-align: center;
@@ -76,15 +77,32 @@
             justify-content: center;
             gap: 8px;
         }
+        .bloque-cancion {
+            margin-bottom: 25px;
+            text-align: left;
+            border-bottom: 1px dashed #d9c5c7;
+            padding-bottom: 15px;
+        }
+        .bloque-cancion:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+        .dedicatoria-cancion {
+            color: #333333;
+            font-size: 14.5px;
+            line-height: 1.5;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
         .btn-cancion {
-            background: linear-gradient(45deg, #ab47bc, #8e24aa);
+            background: linear-gradient(45deg, #58111a, #1a0508); /* Degradado vino a negro */
             color: white;
             border: none;
-            padding: 14px 20px;
-            margin: 10px 0;
+            padding: 12px 20px;
             width: 100%;
             border-radius: 12px;
-            font-size: 15px;
+            font-size: 14.5px;
             cursor: pointer;
             font-weight: bold;
             transition: all 0.3s ease;
@@ -92,81 +110,178 @@
             align-items: center;
             justify-content: center;
             gap: 12px;
-            box-shadow: 0px 4px 10px rgba(142, 36, 170, 0.2);
+            box-shadow: 0px 4px 10px rgba(88, 17, 26, 0.2);
         }
         .btn-cancion:hover {
-            background: linear-gradient(45deg, #ba68c8, #ab47bc);
+            background: linear-gradient(45deg, #722f37, #330b10);
             transform: translateY(-2px);
-            box-shadow: 0px 6px 15px rgba(142, 36, 170, 0.3);
+            box-shadow: 0px 6px 15px rgba(88, 17, 26, 0.3);
         }
         .btn-cancion.reproduciendo {
-            background: linear-gradient(45deg, #4caf50, #66bb6a);
+            background: linear-gradient(45deg, #2e7d32, #4caf50); /* Verde cuando reproduce */
             animation: pulso-verde 1.5s infinite;
-            box-shadow: 0px 4px 10px rgba(76, 175, 80, 0.2);
+            box-shadow: 0px 4px 10px rgba(46, 125, 50, 0.2);
         }
         @keyframes pulso-verde {
-            0% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.4); }
-            70% { box-shadow: 0 0 0 10px rgba(76, 175, 80, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0); }
+            0% { box-shadow: 0 0 0 0 rgba(46, 125, 50, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(46, 125, 50, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(46, 125, 50, 0); }
+        }
+        .despedida-playlist {
+            margin-top: 20px;
+            color: #58111a;
+            font-size: 15px;
+            line-height: 1.6;
+            font-weight: bold;
+            text-align: center;
+            border-top: 2px solid #722f37;
+            padding-top: 15px;
         }
         .brillo {
-            color: #ea80fc;
+            color: #722f37;
         }
     </style>
 </head>
 <body>
 
     <div class="tarjeta">
-        <div class="corazon">💜</div>
+        <div class="corazon">❤️</div>
         <h1>Para Wendy <span class="brillo">✨</span></h1>
         
-        <!-- TU CARTA SINCERA -->
-        <div class="carta-texto">Buenos días, mi amor.
+        <!-- TU CARTA OFICIAL -->
+        <div class="carta-texto">Buenos días, mi amor. ❤️
+Y sí... al final sí lo hice jajaja. 😅 Me tardé un poco porque, aunque quería hacerlo en Python, terminé haciéndolo de otra forma. Pero fue por una buena causa.
 
-Y sí, al final sí lo hice. 😅 Tardé un poco porque terminé haciéndolo de otra forma, pero fue por una buena causa.
+Quería escribirte esto porque hay cosas que no quiero dejar guardadas y prefiero que las sepas.
 
-Quería escribirte esto porque hay cosas que necesito decirte con calma.
+Primero que nada... perdón.
+No estoy escribiendo esto para que me tengas pena ni para hacer más grande la situación. Lo hago porque te amo y porque siento que te debo estas palabras.
 
-Antes que nada, perdón. No escribo esto para que sientas pena por mí ni para exagerar lo que pasó, sino porque quiero ser completamente sincero contigo.
+Hay algo que todavía se me viene a la cabeza de vez en cuando: el día que me bloqueaste de todos lados. La verdad ese día fue muy feo para mí. Sentí un vacío enorme porque de verdad pensé que te había perdido, y no quiero que eso vuelva a pasar nunca más.
 
-Hay algo que todavía tengo muy presente: el día que me bloqueaste de todas partes. Fue un día muy triste para mí porque de verdad sentí que te había perdido. Desde entonces entendí cuánto significas para mí.
+También quiero que sepas algo que para mí es importante. Yo no reciclo sentimientos. Sé que ese día pensaste eso por una frase, pero créeme que cuando te dije esas palabras salieron de mi corazón. No estaba pensando en nadie más. Estaba pensando en ti. Y si aun así te hice sentir mal, lo siento muchísimo.
 
-También quiero que sepas algo. Nunca intenté "reciclar" palabras ni sentimientos. Lo que te dije aquel día salió de mi corazón. Si hubo cosas que olvidé o que hice mal, lo siento de verdad, pero jamás quise hacerte sentir que no eras especial.
+Hay veces en las que siento que todavía no sé quererte como tú mereces. No porque no quiera, sino porque para mí todo esto es nuevo. Tú sabes que nunca había tenido una relación de verdad. Nunca había aprendido a ser pareja de alguien, y aunque eso no justifica mis errores, sí explica por qué todavía estoy aprendiendo muchas cosas.
 
-Siento que todavía estoy aprendiendo a quererte de la manera en que mereces. Nunca había vivido una relación así. No es una excusa, es simplemente la verdad. Para mí muchas cosas son nuevas, y a veces me equivoco sin darme cuenta.
+Pero si hay algo que tengo clarísimo es esto: te estoy amando siendo yo. Sin aparentar. Sin fingir. Sin intentar ser alguien que no soy. Simplemente siendo Leonardo.
 
-Pero hay algo de lo que sí estoy completamente seguro: te amo siendo yo mismo. Sin aparentar, sin fingir y sin decir cosas solo para quedar bien. Te amo porque eres tú.
+Y también quiero contarte algo que tú ya sabes, pero que nunca te expliqué con estas palabras.
+Si alguna vez soy brusco, parezco frío o digo las cosas de una forma que no es la mejor, no es porque no te quiera. De hecho, es todo lo contrario.
 
-Si alguna vez parezco brusco o distante, no es porque no te quiera. Al contrario. Durante mucho tiempo estuve solo y aprendí a protegerme para no salir lastimado. A veces, sin querer, reacciono de esa forma por miedo a perder a alguien que me importa.
+Tú sabes que una de las cosas que más miedo me da es volver a sentirme ingenuo. Y ese miedo no nació por una ex ni por una relación pasada. Nació por personas que eran mi propia familia. Personas en las que confiaba muchísimo y que terminaron engañándome, traicionándome y apuñalándome por la espalda.
 
-No estoy orgulloso de eso, pero estoy trabajando para cambiar. Quiero ser una mejor versión de mí, no solo por ti, sino también por nosotros.
+Después de vivir eso, sin darme cuenta empecé a levantar barreras. Aprendí a protegerme antes de que me lastimaran otra vez. Y aunque muchas veces parezca que reacciono con dureza, la verdad es que por dentro soy todo lo contrario.
 
-Nunca pienses que eres una molestia para mí. Eres una de las personas más valiosas que han llegado a mi vida. Me importas muchísimo y por eso decidí escribirte todo esto.
+Pero contigo ya no quiero vivir así.
+No quiero que pagues por heridas que tú nunca me hiciste.
+No quiero que esos miedos arruinen algo tan bonito como lo que estamos construyendo.
 
-Quiero que sepas que estoy dispuesto a construir algo bonito contigo. Sé que habrá diferencias, errores y momentos difíciles, pero también quiero que aprendamos a resolverlos juntos, hablándonos con sinceridad y confiando el uno en el otro.
+Por eso estoy cambiando. No porque me lo estés exigiendo, sino porque quiero hacerlo. Porque quiero que la persona que esté a tu lado sea alguien que te dé tranquilidad y no dudas.
 
-No prometo ser perfecto, porque no lo soy. Lo que sí puedo prometerte es que siempre voy a esforzarme por mejorar, escucharte y cuidar lo que estamos construyendo.
+Quiero aprender a tratarte mejor.
+Quiero aprender a demostrarte más lo mucho que te amo.
+Quiero que poco a poco desaparezcan esos miedos que todavía cargo.
 
-Gracias por seguir aquí.
+Y sí... quiero que te quedes conmigo.
+Porque me importas muchísimo.
+No sabes cuánto.
 
-Te amo muchísimo, Wendy. ❤️</div>
+Nunca pienses que eres una molestia para mí.
+Nunca.
+Al contrario, desde que llegaste a mi vida me has hecho sentir cosas que hace muchísimo tiempo no sentía. Me haces sentir querido. Me haces sentir importante. Me haces sentir amado.
+Y créeme... esa sensación vale muchísimo para mí.
+
+Gracias por llegar a mi vida.
+Gracias por elegirme.
+Gracias por quererme.
+Y pase lo que pase, gracias por amarme como lo has hecho hasta ahora.
+
+Yo también quiero darte todo de mí.
+Quiero cuidarte.
+Quiero acompañarte cuando tengas un mal día.
+Quiero celebrar contigo cuando estés feliz.
+Quiero estar orgulloso de cada logro tuyo.
+Quiero ser un lugar donde puedas sentir paz.
+
+En serio, me estoy esforzarme por cambiar. Lo hago por mí, sí, pero también porque creo que lo nuestro vale la pena.
+
+Perdón por las veces en las que he sido bruto o no he sabido demostrarte todo lo que siento.
+Nunca ha sido por falta de amor.
+Al contrario.
+Es porque te amo tanto que hasta me da miedo hacerlo mal.
+Pero ya no quiero seguir viviendo con ese miedo.
+Quiero amarte con todo lo que soy.
+
+Si algún día discutimos, no quiero que eso signifique alejarnos. Quiero que aprendamos a hablar, a escucharnos, a entendernos y a resolver las cosas juntos. Quiero que los dos sintamos que siempre podemos volver a encontrarnos después de cualquier diferencia.
+
+No prometo ser perfecto porque no lo soy.
+Seguramente seguiré llegando tarde alguna vez o cometeré errores tontos.
+
+Pero sí puedo prometerte algo.
+Nunca voy a engañarte. Nunca voy a mentirte. Nunca voy a traicionar tu confianza.
+Eso jamás.
+
+Porque el amor que siento por ti es real.
+Y porque desde que te conocí tuve una idea muy clara en mi cabeza: quiero hacerte muy feliz.
+
+Quiero seguir creciendo contigo.
+Quiero seguir aprendiendo contigo.
+Y si tú también lo quieres... me haría muy feliz que algún día pudiera llamarte oficialmente mi novia.
+
+Gracias por leer hasta aquí.
+Espero que hayas descansado muy bien, mi vida.
+
+Y recuerda esto, aunque nunca más leas esta carta:
+Te amo muchísimo, Wendy. Más de lo que a veces las palabras me alcanzan para explicar. ❤️</div>
         
         <!-- SECCIÓN DE MÚSICA -->
         <div class="contenedor-musica">
             <div class="titulo-musica">🎵 Una playlist para acompañar estas palabras</div>
             
-            <!-- Aquí dejé configurado tu ejemplo de la Canción 1 (0 a 1:52) -->
-            <button class="btn-cancion" onclick="controlarMusica('cancion1.mp3', 0, 112, this)">
-                <span>▶️</span> Canción Especial (0:00 a 1:52)
-            </button>
+            <!-- CANCIÓN 1 -->
+            <div class="bloque-cancion">
+                <div class="dedicatoria-cancion">"siempre te voy a dedicar mis enanitos verdes siempre, y dejemos nuestro pasado, yo quiero vivir contigo mi vida el presente y el futuro, eres muy calidad eso me encanta contigo, no siento frio cuando estoy contigo, cuando cuando estoy tan pendejo que no me seco por completo mi cabello pero eso ya no es tu culpa JAJAJAJ, pero te dedico esta parte de la cancion.....espero te guste"</div>
+                <button class="btn-cancion" onclick="controlarMusica('cancion1.mp3', 30, 93, this)">
+                    <span>▶️</span> Canción 1 (0:30 a 1:33)
+                </button>
+            </div>
             
-            <button class="btn-cancion" onclick="controlarMusica('cancion2.mp3', 30, 90, this)">
-                <span>▶️</span> El Coro Favorito
-            </button>
+            <!-- CANCIÓN 2 -->
+            <div class="bloque-cancion">
+                <div class="dedicatoria-cancion">"se que eres fanatica de Jose madero pero bueno se que tambien la deviste escuhcar pero a un asi te la dedico porque siempre quiero que seas vos, tu eres la razon por la que no soy logico contigo,,,, soy bobo por usted corazon..."</div>
+                <button class="btn-cancion" onclick="controlarMusica('cancion2.mp3', 10, 91, this)">
+                    <span>▶️</span> Canción 2 (0:10 a 1:31)
+                </button>
+            </div>
             
-            <button class="btn-cancion" onclick="controlarMusica('cancion3.mp3', 15, 60, this)">
-                <span>▶️</span> Otro Recuerdo Juntos
-            </button>
+            <!-- CANCIÓN 3 -->
+            <div class="bloque-cancion">
+                <div class="dedicatoria-cancion">"se que tambien la escuchaste se que si.... pero decirte que no seas tan ciega estoy bien ojete crj... ajjajaja lo que si quiero decirte es que si me sacriifico por usted y a al primera.... tu haces que valga vivir esta horrenda vida... lo haces brillar"</div>
+                <button class="btn-cancion" onclick="controlarMusica('cancion3.mp3', 8, 74, this)">
+                    <span>▶️</span> Canción 3 (0:08 a 1:14)
+                </button>
+            </div>
+
+            <!-- CANCIÓN 4 -->
+            <div class="bloque-cancion">
+                <div class="dedicatoria-cancion">"cuando te tengo a mi lado y es tan obvio lo nervioso que estoy que no te miro jajajaj es que estoy todo sonrojado, y ya nada mas me importa cuando estoy contigo y se que es real lo nuestro..."</div>
+                <button class="btn-cancion" onclick="controlarMusica('cancion4.mp3', 80, 110, this)">
+                    <span>▶️</span> Canción 4 (1:20 a 1:50)
+                </button>
+            </div>
+
+            <!-- CANCIÓN 5 -->
+            <div class="bloque-cancion">
+                <div class="dedicatoria-cancion">"y se que esta cancion en tu vida la escuchaste pero solo decirte que me mueror por tus ojos por esa mirada que me tiene loco, de verdad que me encantas bastante mi vida..."</div>
+                <button class="btn-cancion" onclick="controlarMusica('cancion5.mp3', 129, 225, this)">
+                    <span>▶️</span> Canción 5 (2:09 a 3:45)
+                </button>
+            </div>
+
+            <!-- NOTA FINAL DE LA PLAYLIST -->
+            <div class="despedida-playlist">
+                y espero te haya gustado las canciones los parrafos que elegi mi vida....y de verdad que te amo y un monton, yo aqui programando no me vi AJJAJAJAJ
+            </div>
         </div>
     </div>
 
@@ -197,9 +312,10 @@ Te amo muchísimo, Wendy. ❤️</div>
 
             clearInterval(intervaloControl);
             
+            // Intentar cargar la canción. Si cambiaste los nombres en tu pc, recuerda subirlos igual aquí.
             audio.src = archivo;
             audio.currentTime = tiempoInicio;
-            audio.play().catch(e => console.log("Interacción requerida"));
+            audio.play().catch(e => console.log("Interacción requerida o archivo faltante"));
             
             iconSpan.innerText = '⏸️';
             botonActual.classList.add('reproduciendo');
