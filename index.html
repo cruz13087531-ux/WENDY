@@ -5,61 +5,184 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Para Wendy</title>
     <style>
+        :root {
+            --color-vino-oscuro: #2c050b;
+            --color-vino: #58111a;
+            --color-vino-claro: #722f37;
+            --color-negro: #0d0204;
+            --color-crema-rosa: #fdf5f6;
+        }
+
         body {
-            background: linear-gradient(135deg, #4a0e17 0%, #1a0508 100%);
+            background: linear-gradient(135deg, var(--color-negro) 0%, var(--color-vino-oscuro) 50%, var(--color-negro) 100%);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            padding: 40px 20px;
+            padding: 20px;
             box-sizing: border-box;
+            overflow-x: hidden;
         }
+
+        /* --- CONTENEDOR DEL SOBRE --- */
+        .contenedor-sobre {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.8s ease;
+        }
+
+        .sobre {
+            width: 280px;
+            height: 180px;
+            background-color: var(--color-vino);
+            border-radius: 0 0 10px 10px;
+            position: relative;
+            cursor: pointer;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.7);
+            border: 2px solid var(--color-vino-claro);
+            transition: transform 0.3s;
+        }
+
+        .sobre:hover {
+            transform: scale(1.05);
+        }
+
+        /* Solapa del sobre */
+        .sobre::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 140px solid transparent;
+            border-right: 140px solid transparent;
+            border-top: 100px solid var(--color-vino-claro);
+            transform-origin: top;
+            transition: transform 0.4s ease 0.2s;
+            z-index: 2;
+        }
+
+        .texto-sobre {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 18px;
+            letter-spacing: 1px;
+            z-index: 3;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+
+        /* --- TARJETA PRINCIPAL (OCULTA AL INICIO) --- */
         .tarjeta {
             background-color: #ffffff;
-            padding: 40px 30px;
+            padding: 35px 25px;
             border-radius: 25px;
-            box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.6);
-            max-width: 580px;
+            box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.9);
+            max-width: 600px;
             width: 100%;
-            border: 3px solid #722f37;
-            position: relative;
+            border: 4px solid var(--color-vino);
+            display: none;
+            opacity: 0;
+            transform: scale(0.9) translateY(30px);
+            transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-sizing: border-box;
         }
+
+        .tarjeta.visible {
+            display: block;
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+
         h1 {
-            color: #58111a;
-            font-size: 28px;
-            margin-bottom: 25px;
+            color: var(--color-vino);
+            font-size: 26px;
+            margin-bottom: 20px;
             text-align: center;
         }
-        .carta-texto {
-            color: #1a0508;
-            font-size: 16px;
-            line-height: 1.7;
-            text-align: left;
-            white-space: pre-line;
-            margin-bottom: 35px;
-        }
+
         .corazon {
-            color: #722f37;
-            font-size: 50px;
+            color: var(--color-vino-claro);
+            font-size: 45px;
             animation: latido 1.3s infinite;
             display: block;
             text-align: center;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
+
         @keyframes latido {
             0% { transform: scale(1); }
             50% { transform: scale(1.1); }
             100% { transform: scale(1); }
         }
 
-        /* Sección de la bromita con la imagen */
+        /* --- SISTEMA DE PESTAÑAS (TABS) --- */
+        .contenedor-navegacion {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 25px;
+            justify-content: center;
+        }
+
+        .btn-tab {
+            background-color: var(--color-negro);
+            color: #ffffff;
+            border: 1px solid var(--color-vino-claro);
+            padding: 8px 14px;
+            font-size: 13px;
+            font-weight: bold;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-tab:hover, .btn-tab.activo {
+            background: linear-gradient(45deg, var(--color-vino), var(--color-vino-oscuro));
+            border-color: var(--color-vino-claro);
+            box-shadow: 0 4px 10px rgba(88, 17, 26, 0.4);
+            transform: translateY(-1px);
+        }
+
+        .contenido-tab {
+            display: none;
+            color: var(--color-negro);
+            font-size: 15.5px;
+            line-height: 1.65;
+            text-align: left;
+            white-space: pre-line;
+            background-color: var(--color-crema-rosa);
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 5px solid var(--color-vino);
+            margin-bottom: 25px;
+            min-height: 200px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .contenido-tab.activo {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- SECCIÓN DE LA BROMITA --- */
         .seccion-broma {
             text-align: center;
             margin: 30px 0;
             padding: 15px;
-            background-color: #fdf5f6;
+            background-color: var(--color-crema-rosa);
             border-radius: 15px;
             border: 1px solid #d9c5c7;
         }
@@ -72,28 +195,27 @@
             margin: 0 auto 15px auto;
         }
         .texto-broma {
-            color: #58111a;
+            color: var(--color-vino);
             font-size: 16px;
             font-weight: bold;
             font-style: italic;
         }
         
-        /* Sección de música - Estilo Vino y Negro */
+        /* --- SECCIÓN DE MÚSICA --- */
         .contenedor-musica {
             margin-top: 35px;
-            background: #fdf5f6;
+            background: var(--color-crema-rosa);
             padding: 25px;
             border-radius: 18px;
-            border: 2px dashed #722f37;
-            box-shadow: inset 0px 2px 5px rgba(0,0,0,0.02);
+            border: 2px dashed var(--color-vino);
         }
         .titulo-musica {
-            color: #58111a;
+            color: var(--color-vino);
             font-weight: bold;
-            font-size: 16px;
+            font-size: 15px;
             margin-bottom: 20px;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
             text-align: center;
             display: flex;
             align-items: center;
@@ -113,19 +235,19 @@
         }
         .dedicatoria-cancion {
             color: #333333;
-            font-size: 14.5px;
+            font-size: 14px;
             line-height: 1.5;
             margin-bottom: 10px;
             font-style: italic;
         }
         .btn-cancion {
-            background: linear-gradient(45deg, #58111a, #1a0508);
+            background: linear-gradient(45deg, var(--color-vino), var(--color-negro));
             color: white;
             border: none;
             padding: 12px 20px;
             width: 100%;
             border-radius: 12px;
-            font-size: 14.5px;
+            font-size: 14px;
             cursor: pointer;
             font-weight: bold;
             transition: all 0.3s ease;
@@ -133,17 +255,15 @@
             align-items: center;
             justify-content: center;
             gap: 12px;
-            box-shadow: 0px 4px 10px rgba(88, 17, 26, 0.2);
+            box-shadow: 0px 4px 10px rgba(88, 17, 26, 0.3);
         }
         .btn-cancion:hover {
-            background: linear-gradient(45deg, #722f37, #330b10);
+            background: linear-gradient(45deg, var(--color-vino-claro), var(--color-vino-oscuro));
             transform: translateY(-2px);
-            box-shadow: 0px 6px 15px rgba(88, 17, 26, 0.3);
         }
         .btn-cancion.reproduciendo {
             background: linear-gradient(45deg, #2e7d32, #4caf50);
             animation: pulso-verde 1.5s infinite;
-            box-shadow: 0px 4px 10px rgba(46, 125, 50, 0.2);
         }
         @keyframes pulso-verde {
             0% { box-shadow: 0 0 0 0 rgba(46, 125, 50, 0.4); }
@@ -152,42 +272,53 @@
         }
         .despedida-playlist {
             margin-top: 20px;
-            color: #58111a;
-            font-size: 15px;
+            color: var(--color-vino);
+            font-size: 14px;
             line-height: 1.6;
             font-weight: bold;
             text-align: center;
-            border-top: 2px solid #722f37;
+            border-top: 2px solid var(--color-vino);
             padding-top: 15px;
-        }
-        .brillo {
-            color: #722f37;
         }
     </style>
 </head>
 <body>
 
-    <div class="tarjeta">
+    <div class="contenedor-sobre" id="pantalla-sobre">
+        <div class="sobre" onclick="abrirCarta()">
+            <div class="texto-sobre">pa ti ctm</div>
+        </div>
+    </div>
+
+    <div class="tarjeta" id="seccion-carta">
         <div class="corazon">❤️</div>
-        <h1>Para Wendy <span class="brillo">✨</span></h1>
+        <h1>Para Wendy ✨</h1>
         
-        <div class="carta-texto">Buenos días, mi amor. ❤️
+        <div class="contenedor-navegacion">
+            <button class="btn-tab activo" onclick="cambiarTab(0)">Inicio</button>
+            <button class="btn-tab" onclick="cambiarTab(1)">Nuestra Historia</button>
+            <button class="btn-tab" onclick="cambiarTab(2)">Mis Miedos</button>
+            <button class="btn-tab" onclick="cambiarTab(3)">Mi Promesa</button>
+            <button class="btn-tab" onclick="cambiarTab(4)">Para Terminar</button>
+        </div>
+
+        <div class="contenido-tab activo">Buenos días, mi amor. ❤️
 Y sí... al final sí lo hice jajaja. 😅 Me tardé un poco porque, aunque quería hacerlo en Python, terminé haciéndolo de otra forma. Pero fue por una buena causa.
 
 Quería escribirte esto porque hay cosas que no quiero dejar guardadas y prefiero que las sepas.
 
 Primero que nada... perdón.
-No estoy escribiendo esto para que me tengas pena ni para hacer más grande la situación. Lo hago porque te amo y porque siento que te debo estas palabras.
+No estoy escribiendo esto para que me tengas pena ni para hacer más grande la situación. Lo hago porque te amo y porque siento que te debo estas palabras.</div>
 
-Hay algo que todavía se me viene a la cabeza de vez en cuando: el día que me bloqueaste de todos lados. La verdad ese día fue muy feo para mí. Sentí un vacío enorme porque de verdad pensé que te había perdido, y no quiero que eso vuelva a pasar nunca más.
+        <div class="contenido-tab">Hay algo que todavía se me viene a la cabeza de vez en cuando: el día que me bloqueaste de todos lados. La verdad ese día fue muy feo para mí. Sentí un vacío enorme porque de verdad pensé que te había perdido, y no quiero que eso vuelva a pasar nunca más.
 
 También quiero que sepas algo que para mí es importante. Yo no reciclo sentimientos. Sé que ese día pensaste eso por una frase, pero créeme que cuando te dije esas palabras salieron de mi corazón. No estaba pensando en nadie más. Estaba pensando en ti. Y si aun así te hice sentir mal, lo siento muchísimo.
 
 Hay veces en las que siento que todavía no sé quererte como tú mereces. No porque no quiera, sino porque para mí todo esto es nuevo. Tú sabes que nunca había tenido una relación de verdad. Nunca había aprendido a ser pareja de alguien, y aunque eso no justifica mis errores, sí explica por qué todavía estoy aprendiendo muchas cosas.
 
-Pero si hay algo que tengo clarísimo es esto: te estoy amando siendo yo. Sin aparentar. Sin fingir. Sin intentar ser alguien que no soy. Simplemente siendo Leonardo.
+Pero si hay algo que tengo clarísimo es esto: te estoy amando siendo yo. Sin aparentar. Sin fingir. Sin intentar ser alguien que no soy. Simplemente siendo Leonardo.</div>
 
-Y también quiero contarte algo que tú ya sabes, pero que nunca te expliqué con estas palabras.
+        <div class="contenido-tab">Y también quiero contarte algo que tú ya sabes, pero que nunca te expliqué con estas palabras.
 Si alguna vez soy brusco, parezco frío o digo las cosas de una forma que no es la mejor, no es porque no te quiera. De hecho, es todo lo contrario.
 
 Tú sabes que una de las cosas que más miedo me da es volver a sentirme ingenuo. Y ese miedo no nació por una ex ni por una relación pasada. Nació por personas que eran mi propia familia. Personas en las que confiaba muchísimo y que terminaron engañándome, traicionándome y apuñalándome por la espalda.
@@ -196,9 +327,9 @@ Después de vivir eso, sin darme cuenta empecé a levantar barreras. Aprendí a 
 
 Pero contigo ya no quiero vivir así.
 No quiero que pagues por heridas que tú nunca me hiciste.
-No quiero que esos miedos arruinen algo tan bonito como lo que estamos construyendo.
+No quiero que esos miedos arruinen algo tan bonito como lo que estamos construyendo.</div>
 
-Por eso estoy cambiando. No porque me lo estés exigiendo, sino porque quiero hacerlo. Porque quiero que la persona que esté a tu lado sea alguien que te dé tranquilidad y no dudas.
+        <div class="contenido-tab">Por eso estoy cambiando. No porque me lo estés exigiendo, sino porque quiero hacerlo. Porque quiero que la persona que esté a tu lado sea alguien que te dé tranquilidad y no dudas.
 
 Quiero aprender a tratarte mejor.
 Quiero aprender a demostrarte más lo mucho que te amo.
@@ -216,9 +347,9 @@ Y créeme... esa sensación vale muchísimo para mí.
 Gracias por llegar a mi vida.
 Gracias por elegirme.
 Gracias por quererme.
-Y pase lo que pase, gracias por amarme como lo has hecho hasta ahora.
+Y pase lo que pase, gracias por amarme como lo has hecho hasta ahora.</div>
 
-Yo también quiero darte todo de mí.
+        <div class="contenido-tab">Yo también quiero darte todo de mí.
 Quiero cuidarte.
 Quiero acompañarte cuando tengas un mal día.
 Quiero celebrar contigo cuando estés feliz.
@@ -228,32 +359,15 @@ Quiero ser un lugar donde puedas sentir paz.
 En serio, me estoy esforzando por cambiar. Lo hago por mí, sí, pero también porque creo que lo nuestro vale la pena.
 
 Perdón por las veces en las que he sido bruto o no he sabido demostrarte todo lo que siento.
-Nunca ha sido por falta de amor.
-Al contrario.
-Es porque te amo tanto que hasta me da miedo hacerlo mal.
-Pero ya no quiero seguir viviendo con ese miedo.
-Quiero amarte con todo lo que soy.
+Nunca ha sido por falta de amor. Al contrario. Es porque te amo tanto que hasta me da miedo hacerlo mal. Pero ya no quiero seguir viviendo con ese miedo. Quiero amarte con todo lo que soy.
 
 Si algún día discutimos, no quiero que eso signifique alejarnos. Quiero que aprendamos a hablar, a escucharnos, a entendernos y a resolver las cosas juntos. Quiero que los dos sintamos que siempre podemos volver a encontrarnos después de cualquier diferencia.
 
-No prometo ser perfecto porque no lo soy.
-Seguramente seguiré llegando tarde alguna vez o cometeré errores tontos.
+No prometo ser perfecto porque no lo soy. Seguramente seguiré llegando tarde alguna vez o cometeré errores tontos. Pero sí puedo prometerte algo: Nunca voy a engañarte. Nunca voy a mentirte. Nunca voy a traicionar tu confianza. Eso jamás.
 
-Pero sí puedo prometerte algo.
-Nunca voy a engañarte. Nunca voy a mentirte. Nunca voy a traicionar tu confianza.
-Eso jamás.
+Porque el amor que siento por ti es real. Y porque desde que te conocí tuve una idea muy clara en mi cabeza: quiero hacerte muy feliz. Quiero seguir creciendo contigo. Quiero seguir aprendiendo contigo. Y si tú también lo quieres... me haría muy feliz que algún día pudiera llamarte oficialmente mi novia.
 
-Porque el amor que siento por ti es real.
-Y porque desde que te conocí tuve una idea muy clara en mi cabeza: quiero hacerte muy feliz.
-
-Quiero seguir creciendo contigo.
-Quiero seguir aprendiendo contigo.
-Y si tú también lo quieres... me haría muy feliz que algún día pudiera llamarte oficialmente mi novia.
-
-Gracias por leer hasta aquí.
-Espero que hayas descansado muy bien, mi vida.
-
-Y recuerda esto, aunque nunca más leas esta carta:
+Gracias por leer hasta aquí. Espero que hayas descansado muy bien, mi vida.
 Te amo muchísimo, Wendy. Más de lo que a veces las palabras me alcanzan para explicar. ❤️</div>
         
         <div class="seccion-broma">
@@ -308,6 +422,33 @@ Te amo muchísimo, Wendy. Más de lo que a veces las palabras me alcanzan para e
     <audio id="reproductor-global"></audio>
 
     <script>
+        // Función para abrir el sobre e iniciar la visualización de la tarjeta
+        function abrirCarta() {
+            const sobreContenedor = document.getElementById('pantalla-sobre');
+            const tarjeta = document.getElementById('seccion-carta');
+            
+            sobreContenedor.style.transform = 'scale(0.5)';
+            sobreContenedor.style.opacity = '0';
+            
+            setTimeout(() => {
+                sobreContenedor.style.display = 'none';
+                tarjeta.classList.add('visible');
+            }, 500);
+        }
+
+        // Función para manejar el cambio de pestañas de la carta
+        function cambiarTab(index) {
+            const tabs = document.querySelectorAll('.contenido-tab');
+            const botones = document.querySelectorAll('.btn-tab');
+            
+            tabs.forEach(tab => tab.classList.remove('activo'));
+            botones.forEach(btn => btn.classList.remove('activo'));
+            
+            tabs[index].classList.add('activo');
+            botones[index].classList.add('activo');
+        }
+
+        // Lógica de reproducción musical existente
         let audio = document.getElementById('reproductor-global');
         let intervaloControl;
         let botonActivo = null;
