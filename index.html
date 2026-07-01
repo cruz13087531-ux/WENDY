@@ -6,31 +6,34 @@
     <title>Para Alguien Especial</title>
     <style>
         body {
-            background-color: #ffe6e6; /* Fondo rosa pastel */
+            background-color: #ffe6e6;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
         }
         .tarjeta {
             background-color: white;
-            padding: 40px;
+            padding: 35px;
             border-radius: 20px;
             box-shadow: 0px 10px 25px rgba(0,0,0,0.1);
             text-align: center;
             max-width: 420px;
+            width: 100%;
             border: 2px solid #ffccd5;
         }
         h1 {
             color: #ff4d6d;
-            font-size: 32px;
+            font-size: 30px;
             margin-bottom: 10px;
         }
         p {
             color: #4a4a4a;
-            font-size: 18px;
+            font-size: 17px;
             line-height: 1.6;
         }
         .corazon {
@@ -41,8 +44,55 @@
         }
         @keyframes latido {
             0% { transform: scale(1); }
-            50% { transform: scale(1.18); }
+            50% { transform: scale(1.15); }
             100% { transform: scale(1); }
+        }
+        
+        /* Estilos de los botones de música */
+        .contenedor-musica {
+            margin-top: 25px;
+            background: #fff0f3;
+            padding: 15px;
+            border-radius: 15px;
+            border: 1px dashed #ffb3c1;
+        }
+        .titulo-musica {
+            color: #ff4d6d;
+            font-weight: bold;
+            font-size: 15px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .btn-cancion {
+            background-color: #ff4d6d;
+            color: white;
+            border: none;
+            padding: 12px 15px;
+            margin: 8px 0;
+            width: 100%;
+            border-radius: 10px;
+            font-size: 15px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .btn-cancion:hover {
+            background-color: #ff758f;
+            transform: translateY(-2px);
+        }
+        .btn-cancion.reproduciendo {
+            background-color: #38b000;
+            animation: pulso-verde 1.5s infinite;
+        }
+        @keyframes pulso-verde {
+            0% { box-shadow: 0 0 0 0 rgba(56, 176, 0, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(56, 176, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(56, 176, 0, 0); }
         }
     </style>
 </head>
@@ -53,7 +103,70 @@
         <h1>¡Para Wendy!</h1>
         <p>Escribí este código y creé esta página web solo para recordarte lo increíble y especial que eres para mí.</p>
         <p>Gracias por cada momento. Eres mi persona favorita. ✨</p>
+        
+        <!-- SECCIÓN DE MÚSICA -->
+        <div class="contenedor-musica">
+            <div class="titulo-musica">🎵 Ponle música a esta carta</div>
+            
+            <!-- PUEDES CAMBIAR LOS TIEMPOS AQUÍ ABAJO (Inicio, Fin) -->
+            <button class="btn-cancion" onclick="controlarMusica('cancion1.mp3', 30, 60, this)">
+                ▶️ Canción 1
+            </button>
+            
+            <button class="btn-cancion" onclick="controlarMusica('cancion2.mp3', 45, 75, this)">
+                ▶️ Canción 2
+            </button>
+            
+            <button class="btn-cancion" onclick="controlarMusica('cancion3.mp3', 10, 40, this)">
+                ▶️ Canción 3
+            </button>
+        </div>
     </div>
+
+    <!-- REPRODUCTOR OCULTO -->
+    <audio id="reproductor-global"></audio>
+
+    <script>
+        let audio = document.getElementById('reproductor-global');
+        let intervaloControl;
+        let botonActivo = null;
+
+        function controlarMusica(archivo, tiempoInicio, tiempoFin, botonActual) {
+            if (botonActivo === botonActual && !audio.paused) {
+                audio.pause();
+                clearInterval(intervaloControl);
+                botonActual.innerHTML = botonActual.innerHTML.replace('⏸️', '▶️');
+                botonActual.classList.remove('reproduciendo');
+                botonActivo = null;
+                return;
+            }
+
+            if (botonActivo) {
+                botonActivo.innerHTML = botonActivo.innerHTML.replace('⏸️', '▶️');
+                botonActivo.classList.remove('reproduciendo');
+            }
+
+            clearInterval(intervaloControl);
+            
+            audio.src = archivo;
+            audio.currentTime = tiempoInicio;
+            audio.play().catch(e => console.log("Interacción requerida"));
+            
+            botonActual.innerHTML = botonActual.innerHTML.replace('▶️', '⏸️');
+            botonActual.classList.add('reproduciendo');
+            botonActivo = botonActual;
+
+            intervaloControl = setInterval(() => {
+                if (audio.currentTime >= tiempoFin) {
+                    audio.pause();
+                    clearInterval(intervaloControl);
+                    botonActual.innerHTML = botonActual.innerHTML.replace('⏸️', '▶️');
+                    botonActual.classList.remove('reproduciendo');
+                    botonActivo = null;
+                }
+            }, 500);
+        }
+    </script>
 
 </body>
 </html>
