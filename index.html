@@ -80,7 +80,7 @@
             text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
         }
 
-        /* --- TARJETA PRINCIPAL (OCULTA AL INICIO) --- */
+        /* --- TARJETA PRINCIPAL --- */
         .tarjeta {
             background-color: #ffffff;
             padding: 35px 25px;
@@ -128,7 +128,7 @@
         .contenedor-navegacion {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 6px;
             margin-bottom: 25px;
             justify-content: center;
         }
@@ -137,8 +137,8 @@
             background-color: var(--color-negro);
             color: #ffffff;
             border: 1px solid var(--color-vino-claro);
-            padding: 8px 14px;
-            font-size: 13px;
+            padding: 8px 12px;
+            font-size: 12.5px;
             font-weight: bold;
             border-radius: 20px;
             cursor: pointer;
@@ -163,7 +163,7 @@
             padding: 20px;
             border-radius: 15px;
             border-left: 5px solid var(--color-vino);
-            margin-bottom: 25px;
+            margin-bottom: 5px;
             min-height: 200px;
             animation: fadeIn 0.5s ease;
         }
@@ -177,20 +177,20 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- SECCIÓN DE LA BROMITA --- */
+        /* --- SECCIÓN DE LA BROMITA (SOLO EN ÚLTIMA PESTAÑA CARTA) --- */
         .seccion-broma {
             text-align: center;
-            margin: 30px 0;
+            margin-top: 25px;
             padding: 15px;
-            background-color: var(--color-crema-rosa);
-            border-radius: 15px;
-            border: 1px solid #d9c5c7;
+            background-color: #ffffff;
+            border-radius: 12px;
+            border: 1px dashed var(--color-vino-claro);
         }
         .seccion-broma img {
             max-width: 100%;
             height: auto;
             border-radius: 12px;
-            box-shadow: 0px 4px 15px rgba(0,0,0,0.15);
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
             display: block;
             margin: 0 auto 15px auto;
         }
@@ -201,19 +201,17 @@
             font-style: italic;
         }
         
-        /* --- SECCIÓN DE MÚSICA --- */
+        /* --- SECCIÓN DE MÚSICA (PESTAÑA EXCLUSIVA) --- */
         .contenedor-musica {
-            margin-top: 35px;
-            background: var(--color-crema-rosa);
-            padding: 25px;
-            border-radius: 18px;
-            border: 2px dashed var(--color-vino);
+            background: #ffffff;
+            padding: 10px 5px;
+            border-radius: 12px;
         }
         .titulo-musica {
             color: var(--color-vino);
             font-weight: bold;
             font-size: 15px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             text-transform: uppercase;
             letter-spacing: 1px;
             text-align: center;
@@ -221,6 +219,8 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
+            border-bottom: 2px dashed var(--color-vino);
+            padding-bottom: 10px;
         }
         .bloque-cancion {
             margin-bottom: 25px;
@@ -237,7 +237,7 @@
             color: #333333;
             font-size: 14px;
             line-height: 1.5;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             font-style: italic;
         }
         .btn-cancion {
@@ -271,7 +271,7 @@
             100% { box-shadow: 0 0 0 0 rgba(46, 125, 50, 0); }
         }
         .despedida-playlist {
-            margin-top: 20px;
+            margin-top: 25px;
             color: var(--color-vino);
             font-size: 14px;
             line-height: 1.6;
@@ -284,24 +284,31 @@
 </head>
 <body>
 
+    <!-- SOBRE INTERACTIVO INICIAL -->
     <div class="contenedor-sobre" id="pantalla-sobre">
         <div class="sobre" onclick="abrirCarta()">
             <div class="texto-sobre">pa ti ctm</div>
         </div>
     </div>
 
+    <!-- TARJETA PRINCIPAL -->
     <div class="tarjeta" id="seccion-carta">
         <div class="corazon">❤️</div>
         <h1>Para Wendy ✨</h1>
         
+        <!-- NAVEGACIÓN POR PESTAÑAS (TABS) -->
         <div class="contenedor-navegacion">
             <button class="btn-tab activo" onclick="cambiarTab(0)">Inicio</button>
             <button class="btn-tab" onclick="cambiarTab(1)">Nuestra Historia</button>
             <button class="btn-tab" onclick="cambiarTab(2)">Mis Miedos</button>
             <button class="btn-tab" onclick="cambiarTab(3)">Mi Promesa</button>
             <button class="btn-tab" onclick="cambiarTab(4)">Para Terminar</button>
+            <button class="btn-tab" onclick="cambiarTab(5)">🎵 Tu Playlist</button>
         </div>
 
+        <!-- CONTENIDOS DE LAS PESTAÑAS -->
+        
+        <!-- TAB 0: INICIO -->
         <div class="contenido-tab activo">Buenos días, mi amor. ❤️
 Y sí... al final sí lo hice jajaja. 😅 Me tardé un poco porque, aunque quería hacerlo en Python, terminé haciéndolo de otra forma. Pero fue por una buena causa.
 
@@ -310,14 +317,16 @@ Quería escribirte esto porque hay cosas que no quiero dejar guardadas y prefier
 Primero que nada... perdón.
 No estoy escribiendo esto para que me tengas pena ni para hacer más grande la situación. Lo hago porque te amo y porque siento que te debo estas palabras.</div>
 
+        <!-- TAB 1: NUESTRA HISTORIA -->
         <div class="contenido-tab">Hay algo que todavía se me viene a la cabeza de vez en cuando: el día que me bloqueaste de todos lados. La verdad ese día fue muy feo para mí. Sentí un vacío enorme porque de verdad pensé que te había perdido, y no quiero que eso vuelva a pasar nunca más.
 
-También quiero que sepas algo que para mí es importante. Yo no reciclo sentimientos. Sé que ese día pensaste eso por una frase, pero créeme que cuando te dije esas palabras salieron de mi corazón. No estaba pensando en nadie más. Estaba pensando en ti. Y si aun así te hice sentir mal, lo siento muchísimo.
+También quiero que sepas algo que para mí es importante. Yo no reciclo sentimientos. Sé que ese día pensaste eso por una frase, pero crème que cuando te dije esas palabras salieron de mi corazón. No estaba pensando en nadie más. Estaba pensando en ti. Y si aun así te hice sentir mal, lo siento muchísimo.
 
 Hay veces en las que siento que todavía no sé quererte como tú mereces. No porque no quiera, sino porque para mí todo esto es nuevo. Tú sabes que nunca había tenido una relación de verdad. Nunca había aprendido a ser pareja de alguien, y aunque eso no justifica mis errores, sí explica por qué todavía estoy aprendiendo muchas cosas.
 
 Pero si hay algo que tengo clarísimo es esto: te estoy amando siendo yo. Sin aparentar. Sin fingir. Sin intentar ser alguien que no soy. Simplemente siendo Leonardo.</div>
 
+        <!-- TAB 2: MIS MIEDOS -->
         <div class="contenido-tab">Y también quiero contarte algo que tú ya sabes, pero que nunca te expliqué con estas palabras.
 Si alguna vez soy brusco, parezco frío o digo las cosas de una forma que no es la mejor, no es porque no te quiera. De hecho, es todo lo contrario.
 
@@ -329,6 +338,7 @@ Pero contigo ya no quiero vivir así.
 No quiero que pagues por heridas que tú nunca me hiciste.
 No quiero que esos miedos arruinen algo tan bonito como lo que estamos construyendo.</div>
 
+        <!-- TAB 3: MI PROMESA -->
         <div class="contenido-tab">Por eso estoy cambiando. No porque me lo estés exigiendo, sino porque quiero hacerlo. Porque quiero que la persona que esté a tu lado sea alguien que te dé tranquilidad y no dudas.
 
 Quiero aprender a tratarte mejor.
@@ -349,6 +359,7 @@ Gracias por elegirme.
 Gracias por quererme.
 Y pase lo que pase, gracias por amarme como lo has hecho hasta ahora.</div>
 
+        <!-- TAB 4: PARA TERMINAR (CON LA IMAGEN AL FINAL DE TODO) -->
         <div class="contenido-tab">Yo también quiero darte todo de mí.
 Quiero cuidarte.
 Quiero acompañarte cuando tengas un mal día.
@@ -358,8 +369,7 @@ Quiero ser un lugar donde puedas sentir paz.
 
 En serio, me estoy esforzando por cambiar. Lo hago por mí, sí, pero también porque creo que lo nuestro vale la pena.
 
-Perdón por las veces en las que he sido bruto o no he sabido demostrarte todo lo que siento.
-Nunca ha sido por falta de amor. Al contrario. Es porque te amo tanto que hasta me da miedo hacerlo mal. Pero ya no quiero seguir viviendo con ese miedo. Quiero amarte con todo lo que soy.
+Perdón por las veces en las que he sido bruto o no he sabido demostrarte todo lo que siento. Nunca ha sido por falta de amor. Al contrario. Es porque te amo tanto que hasta me da miedo hacerlo mal. Pero ya no quiero seguir viviendo con ese miedo. Quiero amarte con todo lo que soy.
 
 Si algún día discutimos, no quiero que eso signifique alejarnos. Quiero que aprendamos a hablar, a escucharnos, a entendernos y a resolver las cosas juntos. Quiero que los dos sintamos que siempre podemos volver a encontrarnos después de cualquier diferencia.
 
@@ -368,61 +378,73 @@ No prometo ser perfecto porque no lo soy. Seguramente seguiré llegando tarde al
 Porque el amor que siento por ti es real. Y porque desde que te conocí tuve una idea muy clara en mi cabeza: quiero hacerte muy feliz. Quiero seguir creciendo contigo. Quiero seguir aprendiendo contigo. Y si tú también lo quieres... me haría muy feliz que algún día pudiera llamarte oficialmente mi novia.
 
 Gracias por leer hasta aquí. Espero que hayas descansado muy bien, mi vida.
-Te amo muchísimo, Wendy. Más de lo que a veces las palabras me alcanzan para explicar. ❤️</div>
+Te amo muchísimo, Wendy. Más de lo que a veces las palabras me alcanzan para explicar. ❤️
+
+            <!-- LA IMAGEN SÓLO QUEDA AQUÍ, AL FINAL DE LA CARTA -->
+            <div class="seccion-broma">
+                <img src="imagen1.jpg" alt="Gatitos tiernos">
+                <div class="texto-broma">"me perdonas o procedo a "</div>
+            </div>
+        </div>
         
-        <div class="seccion-broma">
-            <img src="imagen1.jpg" alt="Gatitos tiernos">
-            <div class="texto-broma">"me perdonas o procedo a "</div>
+        <!-- TAB 5: TU PLAYLIST (PESTAÑA EXCLUSIVA PARA LA MÚSICA) -->
+        <div class="contenido-tab">
+            <div class="contenedor-musica">
+                <div class="titulo-musica">🎵 una playlist para mi vida ya que estoy muy camote de ella</div>
+                
+                <!-- CANCIÓN 1 -->
+                <div class="bloque-cancion">
+                    <div class="dedicatoria-cancion">"siempre te voy a dedicar mis enanitos verdes siempre, y dejemos nuestro pasado, yo quiero vivir contigo mi vida el presente y el futuro, eres muy calidad eso me encanta contigo, no siento frio cuando estoy contigo, cuando cuando estoy tan pendejo que no me seco por completo mi cabello pero eso ya no es tu culpa JAJAJAJ, pero te dedico esta parte de la cancion.....espero te guste"</div>
+                    <button class="btn-cancion" onclick="controlarMusica('cancion1.mp3', 30, 93, this)">
+                        <span>▶️</span> Canción 1
+                    </button>
+                </div>
+                
+                <!-- CANCIÓN 2 -->
+                <div class="bloque-cancion">
+                    <div class="dedicatoria-cancion">"se que eres fanatica de Jose madero pero bueno se que tambien la deviste escuhcar pero a un asi te la dedico porque siempre quiero que seas vos, tu eres la razon por la que no soy logico contigo,,,, soy bobo por usted corazon..."</div>
+                    <button class="btn-cancion" onclick="controlarMusica('cancion2.mp3', 10, 91, this)">
+                        <span>▶️</span> Canción 2
+                    </button>
+                </div>
+                
+                <!-- CANCIÓN 3 -->
+                <div class="bloque-cancion">
+                    <div class="dedicatoria-cancion">"se que tambien la escuchaste se que si.... pero decirte que no seas tan ciega estoy bien ojete crj... ajjajaja lo que si quiero decirte es que si me sacriifico por usted y a al primera.... tu haces que valga vivir esta horrenda vida... lo haces brillar"</div>
+                    <button class="btn-cancion" onclick="controlarMusica('cancion3.mp3', 8, 74, this)">
+                        <span>▶️</span> Canción 3
+                    </button>
+                </div>
+
+                <!-- CANCIÓN 4 -->
+                <div class="bloque-cancion">
+                    <div class="dedicatoria-cancion">"cuando te tengo a mi lado y es tan obvio lo nervioso que estoy que no te miro jajajaj es que estoy todo sonrojado, y ya nada mas me importa cuando estoy contigo y se que es real lo nuestro..."</div>
+                    <button class="btn-cancion" onclick="controlarMusica('cancion4.mp3', 80, 110, this)">
+                        <span>▶️</span> Canción 4
+                    </button>
+                </div>
+
+                <!-- CANCIÓN 5 -->
+                <div class="bloque-cancion">
+                    <div class="dedicatoria-cancion">"y se que esta cancion en tu vida la escuchaste pero solo decirte que me mueror por tus ojos por esa mirada que me tiene loco, de verdad que me encantas bastante mi vida..."</div>
+                    <button class="btn-cancion" onclick="controlarMusica('cancion5.mp3', 129, 225, this)">
+                        <span>▶️</span> Canción 5
+                    </button>
+                </div>
+
+                <!-- NOTA FINAL DE LA PLAYLIST -->
+                <div class="despedida-playlist">
+                    y espero te haya gustado las canciones los parrafos que elegi mi vida....y de verdad que te amo y un monton, yo aqui programando no me vi AJJAJAJAJ
+                </div>
+            </div>
         </div>
 
-        <div class="contenedor-musica">
-            <div class="titulo-musica">🎵 una playlist para mi vida ya que estoy muy camote de ella</div>
-            
-            <div class="bloque-cancion">
-                <div class="dedicatoria-cancion">"siempre te voy a dedicar mis enanitos verdes siempre, y dejemos nuestro pasado, yo quiero vivir contigo mi vida el presente y el futuro, eres muy calidad eso me encanta contigo, no siento frio cuando estoy contigo, cuando cuando estoy tan pendejo que no me seco por completo mi cabello pero eso ya no es tu culpa JAJAJAJ, pero te dedico esta parte de la cancion.....espero te guste"</div>
-                <button class="btn-cancion" onclick="controlarMusica('cancion1.mp3', 30, 93, this)">
-                    <span>▶️</span> Canción 1
-                </button>
-            </div>
-            
-            <div class="bloque-cancion">
-                <div class="dedicatoria-cancion">"se que eres fanatica de Jose madero pero bueno se que tambien la deviste escuhcar pero a un asi te la dedico porque siempre quiero que seas vos, tu eres la razon por la que no soy logico contigo,,,, soy bobo por usted corazon..."</div>
-                <button class="btn-cancion" onclick="controlarMusica('cancion2.mp3', 10, 91, this)">
-                    <span>▶️</span> Canción 2
-                </button>
-            </div>
-            
-            <div class="bloque-cancion">
-                <div class="dedicatoria-cancion">"se que tambien la escuchaste se que si.... pero decirte que no seas tan ciega estoy bien ojete crj... ajjajaja lo que si quiero decirte es que si me sacriifico por usted y a al primera.... tu haces que valga vivir esta horrenda vida... lo haces brillar"</div>
-                <button class="btn-cancion" onclick="controlarMusica('cancion3.mp3', 8, 74, this)">
-                    <span>▶️</span> Canción 3
-                </button>
-            </div>
-
-            <div class="bloque-cancion">
-                <div class="dedicatoria-cancion">"cuando te tengo a mi lado y es tan obvio lo nervioso que estoy que no te miro jajajaj es que estoy todo sonrojado, y ya nada mas me importa cuando estoy contigo y se que es real lo nuestro..."</div>
-                <button class="btn-cancion" onclick="controlarMusica('cancion4.mp3', 80, 110, this)">
-                    <span>▶️</span> Canción 4
-                </button>
-            </div>
-
-            <div class="bloque-cancion">
-                <div class="dedicatoria-cancion">"y se que esta cancion en tu vida la escuchaste pero solo decirte que me mueror por tus ojos por esa mirada que me tiene loco, de verdad que me encantas bastante mi vida..."</div>
-                <button class="btn-cancion" onclick="controlarMusica('cancion5.mp3', 129, 225, this)">
-                    <span>▶️</span> Canción 5
-                </button>
-            </div>
-
-            <div class="despedida-playlist">
-                y espero te haya gustado las canciones los parrafos que elegi mi vida....y de verdad que te amo y un monton, yo aqui programando no me vi AJJAJAJAJ
-            </div>
-        </div>
     </div>
 
     <audio id="reproductor-global"></audio>
 
     <script>
-        // Función para abrir el sobre e iniciar la visualización de la tarjeta
+        // Función para abrir el sobre
         function abrirCarta() {
             const sobreContenedor = document.getElementById('pantalla-sobre');
             const tarjeta = document.getElementById('seccion-carta');
@@ -436,7 +458,7 @@ Te amo muchísimo, Wendy. Más de lo que a veces las palabras me alcanzan para e
             }, 500);
         }
 
-        // Función para manejar el cambio de pestañas de la carta
+        // Función para cambiar de pestaña de forma limpia
         function cambiarTab(index) {
             const tabs = document.querySelectorAll('.contenido-tab');
             const botones = document.querySelectorAll('.btn-tab');
@@ -448,7 +470,7 @@ Te amo muchísimo, Wendy. Más de lo que a veces las palabras me alcanzan para e
             botones[index].classList.add('activo');
         }
 
-        // Lógica de reproducción musical existente
+        // Lógica de reproducción musical fija
         let audio = document.getElementById('reproductor-global');
         let intervaloControl;
         let botonActivo = null;
